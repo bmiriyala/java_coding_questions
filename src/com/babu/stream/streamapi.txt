@@ -1,0 +1,56 @@
+								Functional Interfaces and Stream api main features
+								==================================================
+
+/*The Function interface represents a function (method) that takes a single parameter and returns a single value.
+ * 
+ * public interface Function<T,R> {
+
+    public <R> apply(T parameter);
+}
+ *Function<Long, Long> adder = (value) -> value + 3;
+ */
+
+/*
+ * Predicate, represents a simple function that takes a single value as parameter, and returns true or false
+ * public interface Predicate<T> {
+    boolean test(T t);
+}
+ *Predicate predicate = (value) -> value != null;
+ *
+ *predicate.test("test")
+ */
+
+/*
+ * A Consumer is a functional interface that accepts a single input and returns no output. 
+ * void accept(T t);
+ * 
+ */
+
+/*
+ * Supplier, It represents a function which does not take in any argument but produces a value of type T.
+ * T get()
+ *  Supplier<Double> randomValue = () -> Math.random();
+ *  randomValue.get();
+ */
+
+
+
+//boolean allMatch(Predicate<? super T> predicate) ==> Returns whether all elements of this stream match the provided predicate.
+//boolean anyMatch(Predicate<? super T> predicate) ==> Returns whether any elements of this stream match the provided predicate.
+//<R,A> R collect(Collector<? super T,A,R> collector) ==> Performs a mutable reduction operation on the elements of this stream using a Collector.
+//<R> R collect(Supplier<R> supplier,BiConsumer<R,? super T> accumulator,BiConsumer<R,R> combiner) ==> Performs a mutable reduction operation on the elements of this stream. A mutable reduction is one in which the reduced value is a mutable result container,such as an ArrayList, and elements are incorporated by updating the state of the result rather than by replacing the result. This produces a result equivalent to: 
+//long count() ==> Returns the count of elements in this stream.
+//Stream<T> distinct() ==> Returns a stream consisting of the distinct elements (according to Object.equals(Object)) of this stream.
+//Stream<T> filter(Predicate<? super T> predicate) ==>Returns a stream consisting of the elements of this stream that match the given predicate.
+//Optional<T> findAny() ==> Returns an Optional describing some element of the stream, or an empty Optional if the stream is empty. 
+//Optional<T> findFirst() ==> Returns an Optional describing the first element of this stream,or an empty Optional if the stream is empty. If the stream has no encounter order, then any element may be returned.
+//<R> Stream<R> flatMap(Function<? super T,? extends Stream<? extends R>> mapper) ==> Returns a stream consisting of the results of replacing each element of this stream with the contents of a mapped stream produced by applying the provided mapping function to each element. 
+//void forEach(Consumer<? super T> action) ==> Performs an action for each element of this stream. This is a terminal operation. 
+//<R> Stream<R> map(Function<? super T,? extends R> mapper) ==>Returns a stream consisting of the results of applying the given function to the elements of this stream. 
+//Stream<T> peek(Consumer<? super T> action)==> Returns a stream consisting of the elements of this stream, additionally performing the provided action on each element as elements are consumed from the resulting stream. 
+//Optional<T> reduce(BinaryOperator<T> accumulator) ==> Performs a reduction on the elements of this stream, using an associative accumulation function, and returns an Optional describing the reduced value,if any.
+//Stream<T> sorted() ==> Returns a stream consisting of the elements of this stream, sorted according to natural order.
+//Stream<T> sorted(Comparator<? super T> comparator) ==> Returns a stream consisting of the elements of this stream, sorted according to the provided Comparator.
+//Object[] toArray() ==> Returns an array containing the elements of this stream. This is a terminal operation.
+//<A> A[] toArray(IntFunction<A[]> generator) ==> Returns an array containing the elements of this stream, using the provided generator function to allocate the returned array, as well as any additional arrays that might be required for a partitioned execution or for resizing.
+
